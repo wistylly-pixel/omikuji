@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>おみくじアプリ</title>
+<style>
+body {
+  background: #fff3df;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 50px 15px;
+}
+h1 {
+  color: #b52d2d;
+  font-size: 36px;
+}
+.card {
+  background: white;
+  max-width: 350px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px #ddc9ae;
+}
+#result {
+  font-size: 38px;
+  color: #c52c2c;
+  font-weight: bold;
+  margin: 25px;
+}
+button {
+  background: #b52d2d;
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+button:hover {
+  background: #8e2020;
+}
+</style>
+</head>
+<body>
+
+<h1>🎍 おみくじ 🎍</h1>
+
+<div class="card">
+  <h2>今日の運勢は？</h2>
+  <div id="result">？？？</div>
+  <p id="message">ボタンを押して占ってみよう！</p>
+  <button onclick="drawFortune()">
+    おみくじを引く
+  </button>
+</div>
+
+<script>
+function drawFortune() {
+  const fortunes = [
+    ["大吉", "さくちゃん最高の一日になりそう！"],
+    ["中吉", "さくちゃんいいことがありそう！"],
+    ["小吉", "さくちゃん小さな幸せを見つけよう！"],
+    ["吉", "さくちゃん焦らず進めば大丈夫！"],
+    ["末吉", "さくちゃんこれから運気が上がるかも！"],
+    ["凶", "さくちゃん今日は慎重に行動しよう！"]
+  ];
+
+  const number = Math.floor(
+    Math.random() * fortunes.length
+  );
+
+  document.getElementById("result").textContent =
+    fortunes[number][0];
+
+  document.getElementById("message").textContent =
+    fortunes[number][1];
+}
+</script>
+
+</body>
+</html>
